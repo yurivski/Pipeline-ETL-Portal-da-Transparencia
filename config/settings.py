@@ -44,7 +44,7 @@ DB_CONNECTION_STRING = (
 PROJECT_ROOT = Path(__file__).parent.parent
 
 # Caminhos dos dados:
-DATA_RAW_PATH = PROJECT_ROOT / os.dotenv("DATA_RAW_PATH", data/raw)
+DATA_RAW_PATH = PROJECT_ROOT / os.getenv("DATA_RAW_PATH", "data/raw")
 DATA_PROCESSED_PATH = PROJECT_ROOT / os.getenv("DATA_PROCESSED_PATH", "data/processed")
 LOG_PATH = PROJECT_ROOT / os.getenv("LOG_PATH", "data/logs")
 

@@ -1,0 +1,24 @@
+# Dependências do projeto
+# Core
+pandas==2.1.0
+numpy==1.25.0
+
+# API
+requests==2.31.0
+
+# Database
+psycopg2-binary==2.9.7
+sqlalchemy==2.0.20
+
+# Config
+python-dotenv==1.0.0
+
+# Logging
+loguru==0.7.0
+
+# Dashboard
+streamlit==1.28.0
+plotly==5.17.0
+
+# Utilities
+python-dateutil==2.8.2
