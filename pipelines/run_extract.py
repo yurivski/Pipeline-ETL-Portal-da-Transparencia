@@ -2,14 +2,14 @@
 import sys
 from pathlib import Path
 
-# Adiciona diretório raiz ao path
+# Adicionando o diretório raiz ao path
 project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
 from src.extract import extract_data
 from loguru import logger
 
-# Configura logging
+# Configurando o logging
 logger.add(
     "data/logs/extract_{time}.log",
     rotation="1 day",
@@ -25,7 +25,7 @@ def main():
     print("="*60 + "\n")
     
     try:
-        # Extrai dados
+        # Extrair os dados
         df = extract_data()
         
         print("\n" + "="*60)
