@@ -17,7 +17,7 @@ logger.add(
 
 def main():
     print("\n" + "="*60)
-    print("PIPELINE ETL - ETAPA 3: CARGA")
+    print("PIPELINE ETL - CARGA")
     print("="*60 + "\n")
     
     try:
@@ -29,7 +29,7 @@ def main():
             print("CARGA CONCLUÍDA COM SUCESSO!")
             print("="*60)
             print("Dados carregados no PostgreSQL")
-            print("\nVisualize os dados: streamlit run dashboard/app.py")
+            print("\nVisualize os dados no dashboard")
             print("="*60 + "\n")
             
             return 0
@@ -41,7 +41,7 @@ def main():
         print("ERRO NA CARGA!")
         print("="*60)
         print(f"Erro: {e}")
-        print("\nVerifique os logs em: data/logs/")
+        print("\nVerificar os logs em: data/logs/")
         print("="*60 + "\n")
         
         return 1
