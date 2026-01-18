@@ -17,19 +17,18 @@ logger.add(
 
 def main():
     print("\n" + "="*60)
-    print("PIPELINE ETL - ETAPA 2: TRANSFORMAÇÃO")
+    print("PIPELINE ETL - TRANSFORMAÇÃO")
     print("="*60 + "\n")
     
     try:
-        # Transforma dados
+        # Transformando os dados
         df = transform_data()
         
         print("\n" + "="*60)
         print("TRANSFORMAÇÃO CONCLUÍDA COM SUCESSO!")
         print("="*60)
         print(f"Registros processados: {len(df)}")
-        print(f"Arquivo salvo em: data/processed/")
-        print("\nPróximo passo: python pipelines/run_load.py")
+        print(f"Verificar os arquivos salvos em: data/processed/")
         print("="*60 + "\n")
         
         return 0
@@ -39,7 +38,7 @@ def main():
         print("ERRO NA TRANSFORMAÇÃO!")
         print("="*60)
         print(f"Erro: {e}")
-        print("\nVerifique os logs em: data/logs/")
+        print("\nVerificar os logs em: data/logs/")
         print("="*60 + "\n")
         
         return 1
