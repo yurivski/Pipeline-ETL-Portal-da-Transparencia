@@ -36,17 +36,17 @@ class APIExtractor:
     
     def _build_headers(self):
         """
-        Monta headers HTTP para a requisição. Não é uma regra.
-        Headers: Cabeçalho HTTP (metadados da requisição).
-        User-Agent: Identifica quem está fazendo a requisição.
-        chave-api-dados: Autenticação (se a API exigir).
+        Monta headers HTTP para a requisição,
+        Cabeçalho HTTP (metadados da requisição),
+        Identifica quem está fazendo a requisição e
+        Autentica.
         """
         headers = {
             "User-Agent": "ETL-Pipeline",
             "Accept": "application/json"
         }
 
-        # Adiciona chave da API se existir:
+        # Adicionando a chave da API:
         if API_KEY:
             headers["chave-api-dados"] = API_KEY
             logger.debug("API KEY configurada")
@@ -55,12 +55,12 @@ class APIExtractor:
     
     def extract(self):
         """
-        Agora sim, extrai dados da API.
-        1. Faz requisição HTTP para a API;
-        2. Valida a resposta;
-        3. Converte JSON para DataFrame;
-        4. Salva arquivo bruto;
-        5. Retorna DataFrame.
+        Extrai dados da API:
+        Faz requisição HTTP para a API;
+        Valida a resposta;
+        Converte JSON para DataFrame;
+        Salva arquivo bruto;
+        Retorna DataFrame.
         """
         logger.info("="*60)
         logger.info("INICIANDO EXTRAÇÂO")
