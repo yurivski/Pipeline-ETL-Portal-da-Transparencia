@@ -261,7 +261,7 @@ class PostgresLoader:
         - Se conflito (chave já existe): UPDATE
         - PostgreSQL: INSERT ... ON CONFLICT DO UPDATE
         - Precisa ter constraint UNIQUE ou PRIMARY KEY
-        - Aqui usei 'codigo' como chave
+        - Aqui usei "codigo" como chave
         """
         logger.info("Modo UPSERT: inserindo/atualizando")
         
