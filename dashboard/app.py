@@ -1,7 +1,5 @@
 """
 DASHBOARD INTERATIVO COM STREAMLIT
-
-Comando: streamlit run dashboard/app.py
 """
 
 import sys
@@ -30,16 +28,15 @@ st.set_page_config(
 )
 
 # FUNÇÕES DE CARREGAMENTO DE DADOS
-@st.cache_data(ttl=300)  # Cache por 5 minutos (300 segundos)
+@st.cache_data(ttl=300)  # Cache por 5 minutos
 def load_data_from_db():
     """
     Carrega dados do PostgreSQL.
     
-    - Decorator que cacheia resultado da função
-    - Se função for chamada de novo com mesmos parâmetros,
-      retorna do cache (não executa de novo)
-    - ttl=300 = cache expira após 5 minutos
-    - IMPORTANTE: Acelera muito o dashboard!
+    - Decorator que cacheia resultado da função;
+    - Se função for chamada de novo com mesmos parâmetros
+      retorna do cache (não executa de novo);
+    - ttl=300 = cache expira após 5 minutos.
     """
     try:
         # Conecta ao banco
@@ -127,7 +124,7 @@ def create_metrics_cards(df):
     """
     col1, col2, col3 = st.columns(3)
     
-    # MÉTRICA 1: Total de órgãos
+    # Total de órgãos
     with col1:
         # with col1: = tudo dentro vai para col1
         st.metric(
@@ -136,7 +133,7 @@ def create_metrics_cards(df):
             delta=None  # Sem variação
         )
     
-    # MÉTRICA 2: Códigos únicos
+    # Códigos únicos
     with col2:
         unique_codes = df['codigo'].nunique()
         st.metric(
@@ -144,7 +141,7 @@ def create_metrics_cards(df):
             value=unique_codes
         )
     
-    # MÉTRICA 3: Última atualização
+    # Última atualização
     with col3:
         if 'data_extracao' in df.columns:
             # Converte para datetime se for string
@@ -261,10 +258,10 @@ def create_search_filter(df):
     st.subheader("Buscar Órgão")
     
     # Campo de busca
-    # - Cria campo de texto
-    # - label = texto acima do campo
-    # - value = valor padrão
-    # - Retorna string digitada
+    # Cria campo de texto
+    # label = texto acima do campo
+    # value = valor padrão
+    # Retorna string digitada
     search_term = st.text_input(
         label="Digite parte da descrição do órgão:",
         value="",
@@ -274,9 +271,9 @@ def create_search_filter(df):
     # Se usuário digitou algo
     if search_term:
         # Filtra DataFrame
-        # - Verifica se string contém termo
-        # - case=False = ignora maiúsculas/minúsculas
-        # - na=False = considera NaN como False
+        # Verifica se string contém termo
+        # case=False = ignora maiúsculas/minúsculas
+        # na=False = considera NaN como False
         filtered_df = df[
             df['descricao'].str.contains(search_term, case=False, na=False)
         ]
@@ -296,8 +293,6 @@ def create_download_button(df):
     - file_name = nome sugerido
     """
     # Converte DataFrame para CSV
-    # - index=False = não inclui índice
-    # - Retorna string CSV
     csv = df.to_csv(index=False)
     
     st.download_button(
@@ -343,7 +338,7 @@ def create_sidebar():
     Cria barra lateral com informações e controles.
     
     - Área lateral do dashboard
-    - Boa para filtros, configs, info
+    - Boa para filtros, configs, info e etc
     """
     with st.sidebar:
         st.title("Informações")
@@ -430,13 +425,13 @@ def main():
     if df is None:
         st.error("Nenhum dado disponível!")
         st.info("""
-        **Possíveis causas:**
+        **Verifique se:**
         1. Pipeline ETL ainda não foi executado
-        2. Banco de dados não está acessível
+        2. Banco de dados não está rodando
         3. Nenhum arquivo CSV encontrado
         
-        **Solução:**
-        Execute o pipeline: `python pipelines/run_full_pipeline.py`
+        **Orientação:**
+        Execute o arquivo: "run_full_pipeline"
         """)
         return
     
