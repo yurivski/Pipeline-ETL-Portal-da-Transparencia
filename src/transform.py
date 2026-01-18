@@ -12,11 +12,11 @@ from config.settings import DATA_RAW_PATH, DATA_PROCESSED_PATH
 class DataTransformer:
     """
     Transformação de dados:
-    1. Remover duplicatas;
-    2. Tratar valores nulos;
-    3. Padronizar tipos de dados;
-    4. Validar qualidade;
-    5. Adicionar metadados.
+    Remover duplicatas;
+    Tratar valores nulos;
+    Padronizar tipos de dados;
+    Validar qualidade;
+    Adicionar metadados.
     """
     
     def __init__(self):
@@ -37,7 +37,7 @@ class DataTransformer:
         logger.info("="*60)
         
         try:
-            # Carrega dados se não fornecidos
+            # Carrega dados
             if df is None:
                 df = self._load_latest_raw_data()
             
@@ -134,7 +134,7 @@ class DataTransformer:
             ]
 
             for col in columns_with_nulls:
-                logger.debug(f"   {col}: {null_by_column[col]} nulos")
+                logger.debug(f"{col}: {null_by_column[col]} nulos")
             
             # Remove linhas com nulos em colunas
             critical_columns = ['codigo', 'descricao']
@@ -165,7 +165,7 @@ class DataTransformer:
         for col in df.select_dtypes(include=['object']).columns:
             df[col] = df[col].apply(lambda x: x.strip() if isinstance(x, str) else x)
         
-        logger.info("✅ Tipos padronizados")
+        logger.info("Tipos padronizados")
         
         return df
     
@@ -186,8 +186,7 @@ class DataTransformer:
         """
         Valida a qualidade dos dados:
         - assert condição, "mensagem"
-        - Se condição é False, lança erro com mensagem
-        - É uma validação forte (quebra execução)
+        - Se condição é "False", lança erro com mensagem
         """
         logger.info("Validando qualidade dos dados")
         
@@ -216,7 +215,7 @@ class DataTransformer:
         
         df.to_csv(filepath, index=False, encoding='utf-8')
         
-        logger.debug(f"💾 Arquivo salvo: {filepath}")
+        logger.debug(f"Arquivo salvo: {filepath}")
         
         return filename
 
