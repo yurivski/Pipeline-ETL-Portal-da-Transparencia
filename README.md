@@ -6,24 +6,8 @@
 <img src="https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white" alt="STREAMLIT">
 <img src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white" alt="POSTGRESQL">
 
-### Pipeline ETL profissional para extração, transformação e análise de dados públicos do Governo Federal
-<a href="#instalação"><img src="https://img.shields.io/badge/_Instalação-4285F4?style=for-the-badge" alt="Instalação"></a>
-<a href="#como-usar"><img src="https://img.shields.io/badge/_Como_Usar-34A853?style=for-the-badge" alt="Como Usar"></a>
-<a href="#estrutura-do-projeto"><img src="https://img.shields.io/badge/_Estrutura-FBBC04?style=for-the-badge" alt="Estrutura"></a>
-<a href="#documentação-dos-módulos"><img src="https://img.shields.io/badge/_Documentação-EA4335?style=for-the-badge" alt="Documentação"></a>
-
 </div>
 
-### Sobre o Projeto:
-Este projeto implementa um pipeline ETL (Extract, Transform, Load) completo para coletar e analisar dados dos órgãos do SIAFI (Sistema Integrado de Administração Financeira do Governo Federal) através da API do Portal da Transparência.
-
-### Objetivos:
-```
-- Automatizar coleta de dados públicos
-- Aplicar boas práticas de Engenharia de Dados
-- Garantir qualidade e confiabilidade dos dados
-- Facilitar análise através de dashboard interativo
-```
 ### Tecnologias Utilizadas:
 ```
 --------------------------------------------------------------------------------------
